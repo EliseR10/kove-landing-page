@@ -44,13 +44,13 @@ export default function Home() {
             KOVE
           </span>
           <nav className="flex items-center gap-8 text-sm text-cream/90">
-            <a href="#features" className="transition hover:text-cream">
+            <a href="#features" className="hidden sm:inline transition hover:text-cream">
               Feature
             </a>
-            <a href="#colorways" className="transition hover:text-cream">
+            <a href="#colorways" className="hidden sm:inline transition hover:text-cream">
               Colorways
             </a>
-            <a href="#specs" className="transition hover:text-cream">
+            <a href="#specs" className="hidden sm:inline transition hover:text-cream">
               Specs
             </a>
             <a
@@ -70,13 +70,14 @@ export default function Home() {
             Built to feel as good as it sounds.
           </h1>
 
-          <div className="relative mx-auto mt-8 aspect-[16/8] w-full max-w-3xl">
+          <div className="relative mx-auto mt-8 aspect-[16/8] w-full max-w-4xl">
             <Image
-              src="/keyboard.jpg"
+              src="/keyboard-closeup.jpg"
               alt="KOVE mechanical keyboard"
               fill
               className="object-contain"
               priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
 
