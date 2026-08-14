@@ -1,5 +1,5 @@
 import Image from "next/image";
-import TestimonialCarousel from "./components/TestimonialCarousel";
+import TestimonialCarousel from "./components/TestimonialCarousel.server";
 
 const features = [
   {

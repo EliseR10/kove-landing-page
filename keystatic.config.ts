@@ -3,7 +3,8 @@ import { config, fields, collection } from '@keystatic/core';
 
 export default config({
   storage: {
-    kind: 'local',
+    kind: 'github',
+    repo: `${process.env.REPO_OWNER}/${process.env.REPO_NAME}`
   },
   collections: {
     testimonials: collection({
@@ -12,9 +13,22 @@ export default config({
       entryLayout: 'content', //define how the CMS should display the fields for each entry in this collection
       slugField: 'name', //define what field in your collection schema should be used as the slug for each item
       schema: { // Define the fields that each entry in the collection should have
-        name: fields.slug({ name: { label: 'Name' } }),
-        role: fields.slug({ name: { label: 'Role' } }),
-        quote: fields.text({ label: 'Testimonial content', multiline: true}),
+        name: fields.slug({ 
+          name: { 
+            label: 'Name',
+            validation: { isRequired: true }, 
+          } 
+        }),
+        role: fields.slug({ 
+          name: { 
+            label: 'Role',
+            validation: { isRequired: true }, 
+          } 
+        }),
+        quote: fields.text({ 
+          label: 'Testimonial content', 
+          multiline: true
+        }),
       },
     }),
   },
