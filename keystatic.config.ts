@@ -4,7 +4,8 @@ import { config, fields, collection } from '@keystatic/core';
 export default config({
   storage: {
     kind: 'github',
-    repo: `${process.env.REPO_OWNER}/${process.env.REPO_NAME}`
+    repo: "EliseR10/kove-landing-page", // define the GitHub repository where the content should be stored
+    branchPrefix: 'my-prefix/testimonials', // optional, defaults to 'keystatic/'
   },
   collections: {
     testimonials: collection({
