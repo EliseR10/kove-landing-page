@@ -1,5 +1,8 @@
 import Image from "next/image";
 import TestimonialCarousel from "./components/TestimonialCarousel.server";
+import RollingTextButton from "./components/rollingTextButton";
+import ScrollInViewSection from "./components/scrollInViewSection";
+import FeatureCard from "./components/stickyNavBar";
 
 const features = [
   {
@@ -53,12 +56,10 @@ export default function Home() {
             <a href="#specs" className="hidden sm:inline transition hover:text-cream">
               Specs
             </a>
-            <a
-              href="#pre-order"
-              className="font-semibold text-cream transition hover:opacity-80"
-            >
+            <a id="pre-order" href="#pre-order" className="font-semibold text-cream transition hover:opacity-80">
               PRE-ORDER
             </a>
+            
           </nav>
         </div>
       </header>
@@ -88,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* Problem statement */}
-      <section className="bg-cream">
+      <ScrollInViewSection className="bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <div className="mx-auto max-w-xl">
             <h2 className="font-display text-2xl font-semibold text-ink sm:text-3xl">
@@ -99,26 +100,25 @@ export default function Home() {
               landfill. KOVE was built by people who type for a living and
               got tired of settling.
             </p>
-            <a
-              id="pre-order"
+            <RollingTextButton
               href="#"
               className="mt-8 inline-block rounded-full bg-olive px-8 py-3 font-body font-medium text-cream transition hover:bg-olive-deep"
-            >
-              Pre-Order Now !
-            </a>
+              label="Pre-Order Now !"
+              ariaLabel="Pre-Order Now !"
+            />
           </div>
         </div>
-      </section>
+      </ScrollInViewSection>
 
       {/* Features */}
-      <section id="features" className="bg-burgundy">
+      <ScrollInViewSection className="bg-burgundy">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <p className="mb-10 font-mono text-sm uppercase tracking-widest text-cream">
             Product Features
           </p>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature) => (
-              <div
+              <FeatureCard
                 key={feature.title}
                 className="rounded-2xl bg-cream-card px-6 py-8 text-center"
               >
@@ -128,14 +128,14 @@ export default function Home() {
                 <p className="mt-4 text-sm text-ink/80">
                   {feature.description}
                 </p>
-              </div>
+              </FeatureCard>
             ))}
           </div>
         </div>
-      </section>
+      </ScrollInViewSection>
 
       {/* What's actually inside */}
-      <section id="specs" className="bg-cream">
+      <ScrollInViewSection id="specs" className="bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <h2 className="font-display text-2xl font-semibold text-olive-deep sm:text-3xl">
             What&apos;s actually inside?
@@ -175,35 +175,39 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </ScrollInViewSection>
 
       {/* Testimonials */}
-      <section id="colorways" className="bg-burgundy">
+      <ScrollInViewSection id="colorways" className="bg-burgundy">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <h2 className="mb-10 font-mono text-2xl text-cream">
             Testimonials
           </h2>
           <TestimonialCarousel />
         </div>
-      </section>
+      </ScrollInViewSection>
 
       {/* Final CTA */}
-      <section className="bg-cream">
+      <ScrollInViewSection className="bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
           <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
             Type it like it matters
           </h2>
-          <a
+          <RollingTextButton
             href="#"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-olive px-8 py-3 font-body font-medium text-cream transition hover:bg-olive-deep"
-          >
-            Pre-Order — <span className="font-mono">$189</span>
-          </a>
+            label={
+              <>
+                Pre-Order — <span className="font-mono">$189</span>
+              </>
+            }
+            ariaLabel="Pre-Order — $189"
+          />
           <p className="mt-6 text-sm text-muted">
             Free shipping on all pre-orders. 30-day returns.
           </p>
         </div>
-      </section>
+      </ScrollInViewSection>
 
       {/* Footer */}
       <footer className="bg-olive">
