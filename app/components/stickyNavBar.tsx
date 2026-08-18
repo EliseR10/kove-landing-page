@@ -22,7 +22,7 @@ export default function FeatureCard({ children, className }: FeatureCardProps) {
             }}
             className={className}
         >
-        {children}
+            {children}
         </motion.div>
     )
 }
